@@ -1,0 +1,11 @@
+.framework-list-slice {
+    height: 260px;
+    width: auto;
+    box-shadow: 1px 4px 13px rgb(0 0 0 / 15%);
+    padding: 20px;
+    margin: 10px 5px 15px 20px;
+}
+
+.container {
+    display: flex;
+}
