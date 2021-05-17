@@ -1,5 +1,11 @@
 export interface Product {
     id: number;
     name: string;
-    price: number;   
+    price: number; 
+    //quantity: number;  
   }
+
+export interface Quantity{
+  productId: number;
+  numOfStock: number;
+}

@@ -1,0 +1,78 @@
+<p>items-in-stock works!</p>
+
+
+<div class="py-8">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+
+            <div class="flex flex-col w-full">
+                <div class="overflow-x-auto">
+                    <div class="py-4 align-middle inline-block min-w-full">
+                        <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                           no.
+                                        </th>
+                                        <th scope="col">
+                                            Product Name
+                                        </th>
+                                        <th scope="col">
+                                            Quantity
+                                        </th>
+                                        <th scope="col">
+                                           Unit Price
+                                        </th>
+                                        <th scope="col">
+                                            Total
+                                         </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>
+                                                1    
+                                            </td>
+                                            <td>
+                                                Avocado    
+                                            </td>
+                                            <td>
+                                                3    
+                                            </td>
+                                            <td>
+                                                R 15.44 
+                                            </td>
+                                            <td>
+                                                R 31.24 
+                                            </td>
+                                        </tr>
+                                        <tr *ngFor="let stock of stocks" >
+                                            <td>
+                                                1    
+                                            </td>
+                                            <td>
+                                                {{stock.name}}  
+                                            </td>
+                                            <td>
+                                                3    
+                                            </td>
+                                            <td>
+                                                R 15.44 
+                                            </td>
+                                            <td>
+                                                R 31.24 
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
