@@ -30,44 +30,45 @@
                                          </th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                        <tr>
-                                            <td>
-                                                1    
-                                            </td>
-                                            <td>
-                                                Avocado    
-                                            </td>
-                                            <td>
-                                                3    
-                                            </td>
-                                            <td>
-                                                R 15.44 
-                                            </td>
-                                            <td>
-                                                R 31.24 
-                                            </td>
-                                        </tr>
+                                <tbody>                                      
                                         <tr *ngFor="let stock of stocks" >
                                             <td>
-                                                1    
+                                                {{stocks.indexOf(stock) + 1}}
                                             </td>
                                             <td>
                                                 {{stock.name}}  
                                             </td>
                                             <td>
-                                                3    
+                                                {{getQuantity(stock.id)}}
                                             </td>
                                             <td>
-                                                R 15.44 
+                                                {{currencyFormatter(stock.price)}}
                                             </td>
                                             <td>
-                                                R 31.24 
+                                                {{currencyFormatter(stock.price * getQuantity(stock.id))}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <h2>Total Due:</h2>
+                                            </td>
+                                            <td>
+                                               {{currencyFormatter(TotalDue())}}
                                             </td>
                                         </tr>
                                     </tbody>
                             </table>
 
+                        </div>
+                        <br>
+
+                        <div class="row justify-content-end">
+                            <div class="col-2">
+                                <button type="button" (click)="checkout" class="btn btn-outline-success">Check out</button>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -24,11 +24,23 @@
             Stock-up
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Stock-List</a></li>
+            <li><a class="dropdown-item" routerLink="/list-of-stock">Stock-List</a></li>
             <li><a class="dropdown-item" href="#">Add-Stock</a></li>
           </ul>
         </li>
       </ul>
+
+      <a class="nav-item dropdown" style="background-color: antiquewhite;">
+        
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Not SignedIn
+            <i  class="material-icons">person</i>
+          </a>        
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" routerLink="/log-in">Sign in as Admin</a></li>
+          <li><a class="dropdown-item" routerLink="/log-in">Sign in as a customer</a></li>
+        </ul>
+      </a>
     </div>
   </div>
 </nav>

@@ -5,13 +5,15 @@ import { CreateStockComponent } from './stock/create-stock/create-stock.componen
 import { ItemsInStockComponent } from './stock/items-in-stock/items-in-stock.component';
 import { ListOfStockComponent } from './stock/list-of-stock/list-of-stock.component';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from './login/login/login.component';
 const routes: Routes = [
   // List of routes here:
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
   { path: 'create-stock', component: CreateStockComponent},
-  {path: "stock-list", component: ListOfStockComponent },
-  {path: "items-in-stock", component: ItemsInStockComponent }
+  {path: "list-of-stock", component: ListOfStockComponent },
+  {path: "items-in-stock", component: ItemsInStockComponent },
+  {path: "log-in", component: LoginComponent }
 ];
 
 @NgModule({

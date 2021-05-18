@@ -7,6 +7,7 @@ import { ItemsInStockComponent } from './stock/items-in-stock/items-in-stock.com
 import { CreateStockComponent } from './stock/create-stock/create-stock.component';
 import { ListOfStockComponent } from './stock/list-of-stock/list-of-stock.component';
 import { HomeComponent } from './home/home/home.component';
+import { LoginComponent } from './login/login/login.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HomeComponent } from './home/home/home.component';
     ItemsInStockComponent,
     CreateStockComponent,
     ListOfStockComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

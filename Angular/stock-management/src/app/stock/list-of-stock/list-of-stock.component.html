@@ -1,1 +1,55 @@
-<p>list-of-stock works!</p>
+
+<div class="py-8">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+
+            <div class="flex flex-col w-full">
+                <div class="overflow-x-auto">
+                    <div class="py-4 align-middle inline-block min-w-full">
+                        <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                           no.
+                                        </th>
+                                        <th scope="col">
+                                            Product Name
+                                        </th>
+                                        <th scope="col">
+                                            Quantity
+                                        </th>
+                                        <th scope="col">
+                                           Unit Price
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>                                      
+                                        <tr *ngFor="let product of products" >
+                                            <td>
+                                                {{products.indexOf(product) + 1}}
+                                            </td>
+                                            <td>
+                                                {{product.name}}  
+                                            </td>
+                                            <td>
+                                                {{getQuantity(product.id)}}
+                                            </td>
+                                            <td>
+                                                {{currencyFormatter(product.price)}}
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                            </table>
+
+                        </div>
+                        <br>                       
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
