@@ -32,4 +32,12 @@ export class ListOfStockComponent implements OnInit {
     }      
     return 1;
   }
+
+  create(){
+
+  }
+
+  selectProduct(id: number){
+
+  }
 }

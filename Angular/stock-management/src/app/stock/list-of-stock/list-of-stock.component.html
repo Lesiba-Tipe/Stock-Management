@@ -7,7 +7,12 @@
                 <div class="overflow-x-auto">
                     <div class="py-4 align-middle inline-block min-w-full">
                         <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
-
+                            <div class="mb-4 row justify-content-end">
+                                <button type="button" class="btn btn-primary col-md-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Launch demo modal
+                                </button>
+                                
+                            </div>
                             <table>
                                 <thead>
                                     <tr>
@@ -53,3 +58,57 @@
         </div>
     </div>
 </div>
+
+<!-- Button trigger modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" (click)="create()" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="modal-bodyop">
+    <div class="dropdown">
+        <button class="dropbtn">Dropdown</button> onbtn
+        <ul *ngFor="let product of products"  class="dropdown-content">
+                                              
+        </ul>
+    </div>
+</div>-->
+
+<!--<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Dropdown button
+    </button>
+    <ul  *ngFor="let product of products" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">{{product.name}}</a></li>
+    </ul>
+  </div>-->
+
+
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+      Dropdown button
+    </button>
+    <ul *ngFor="let product of products"  class="dropdown-content">
+        <li><a class="dropdown-item" href="#">{{product.name}}</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <span>Mouse over me</span>
+    <div *ngFor="let product of products" class="dropdown-content">
+      <p>{{product.name}}</p>
+    </div>
+  </div>

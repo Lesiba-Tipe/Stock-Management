@@ -2,7 +2,7 @@ import { Product, Quantity } from "./Product";
 
 export const products: Product[] = [
     {id : 1, name : "Tomato", price : 15.45 },
-    {id : 2, name : "onion", price : 13.50 },
+    {id : 2, name : "Onion", price : 13.50 },
     {id : 3, name : "Avocado", price : 36.10 },
   ]
 
