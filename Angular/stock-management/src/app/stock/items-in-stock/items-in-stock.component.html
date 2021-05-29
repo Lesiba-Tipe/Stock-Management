@@ -1,8 +1,14 @@
-<p>items-in-stock works!</p>
+
 
 
 <div class="py-8">
+    
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="row justify-content-center" style="height: 50px;">
+            <div class="col-md-4">
+                <h4 style="text-align: center;">Selling items</h4>
+            </div>
+        </div>
         <div class="p-4 bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
             <div class="flex flex-col w-full">
@@ -64,12 +70,11 @@
 
                         </div>
                         <br>
-
-                        <div class="row justify-content-end">
-                            <div class="col-2">
-                                <button type="button" (click)="checkout" class="btn btn-outline-success">Check out</button>
+                        <div class="row align-items-center btn-box justify-content-end">
+                            <div class="col-auto">
+                              <button type="button" (click)="checkout" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addUserModal" >Check out</button>
                             </div>
-                        </div>
+                          </div>
                     </div>
                 </div>
             </div>
@@ -77,3 +82,42 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" >Customer email</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+              </div>
+
+        </div>  
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" (click)="checkout()" class="btn btn-outline-success"  data-bs-dismiss="modal">Save changes</button>
+        </div>     
+      </div>       
+        
+      </div>
+  </div>
+
+    <div class="row justify-content-end">
+      <div class="col-md-4">
+        <div class="alert alert-success fade show" role="alert" *ngIf="isCheckedOut">
+          <strong>Transaction was successfull</strong>       
+        </div> 
+      </div>
+    </div>
+    <div class="row justify-content-end">
+        <div class="col-md-4">
+          <div class="alert alert-danger fade show" role="alert" *ngIf="isUserExist">
+            <strong>Transaction was successfull</strong>       
+          </div> 
+        </div>
+      </div>
+ 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { stocks } from 'src/app/Globals';
+import { stocks, users } from 'src/app/Globals';
 import { Product, Quantity } from 'src/app/Product';
+import { User } from 'src/app/User';
 
 @Component({
   selector: 'app-items-in-stock',
@@ -9,14 +10,21 @@ import { Product, Quantity } from 'src/app/Product';
 })
 export class ItemsInStockComponent implements OnInit {
 
+  get users() { return users}
 
   stocks : Product[] = [];
   quantities : Quantity[] = [];
+  isCheckedOut : boolean = false;
+  isUserExist : boolean = false;
   constructor() { }
 
   ngOnInit(): void {
     this.setQuantity()
   }
+
+  fadeOutAlert() {
+    setTimeout(() => { this.isCheckedOut = false }, 3000);
+   }
 
   currencyFormatter(price:number) {
     var formatter = new Intl.NumberFormat('en-ZA', {
@@ -66,6 +74,16 @@ export class ItemsInStockComponent implements OnInit {
   }
  
   checkout(){
+    var email: string
+    //if email exist
+    if (users.find(u => u.email == email) != null) {
+      //var user : User = { email: email}
+      //users.push(user)
+      this.isCheckedOut = true;
+      this.fadeOutAlert()
+    }else{
+      this.isUserExist = true;
+    }
     
   }
 

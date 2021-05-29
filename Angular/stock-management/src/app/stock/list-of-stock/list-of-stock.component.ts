@@ -1,5 +1,6 @@
  import { Component, OnInit } from '@angular/core';
  import { quantity, products } from 'src/app/Globals';
+import { Product, Quantity } from 'src/app/Product';
 @Component({
   selector: 'app-list-of-stock',
   templateUrl: './list-of-stock.component.html',
@@ -10,10 +11,15 @@ export class ListOfStockComponent implements OnInit {
   get products() { return products; } 
   get quantity() { return quantity; } 
 
+  selectedProduct = "";
+  isCreated: boolean = false;
+  public productId = 0;
+  public price = 0;
+  public noOfItems : number = 0;
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
+
   currencyFormatter(price:number) {
     var formatter = new Intl.NumberFormat('en-ZA', {
       style: 'currency',
@@ -35,9 +41,23 @@ export class ListOfStockComponent implements OnInit {
 
   create(){
 
+    quantity.forEach(q => {
+      if (q.productId == this.productId) {
+        q.numOfStock = q.numOfStock + this.noOfItems //FIX THIS
+        console.log(q.numOfStock)
+      }
+    })
+
+    this.isCreated = true
+    this.fadeOutAlert()
   }
 
-  selectProduct(id: number){
+  fadeOutAlert() {
+    setTimeout(() => { this.isCreated = false }, 3000);
+   }
+  selectProduct(id: number){}
 
+  onChangeProduct(newObj : Product){
+    this.productId = newObj.id
   }
 }

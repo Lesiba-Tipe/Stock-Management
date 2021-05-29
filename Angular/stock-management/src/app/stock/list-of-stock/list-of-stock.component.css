@@ -44,3 +44,9 @@
   .dropdown:hover .dropbtn {
     background-color: #989998;
   }
+
+  .text-box{
+    min-width: 10px;
+    width: auto;
+  }
+

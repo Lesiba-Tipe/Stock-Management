@@ -1,4 +1,5 @@
 import { Product, Quantity } from "./Product";
+import { User } from "./User";
 
 export const products: Product[] = [
     {id : 1, name : "Tomato", price : 15.45 },
@@ -13,3 +14,5 @@ export const products: Product[] = [
   ];
 
   export const stocks: Product[] = [];
+
+  export const users: User[] = []

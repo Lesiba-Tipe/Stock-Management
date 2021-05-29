@@ -1,46 +1,22 @@
-<div class="noclass">
-  
-</div>
-
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #afcfe6;">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
         </li>
+        <div>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" routerLink="/list-of-stock">List of Stock</a>
         </li>
+        </div>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" routerLink="/list-of-stock"></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Stock-up
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="/list-of-stock">Stock-List</a></li>
-            <li><a class="dropdown-item" href="#">Add-Stock</a></li>
-          </ul>
-        </li>
+        
       </ul>
 
-      <a class="nav-item dropdown" style="background-color: antiquewhite;">
-        
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Not SignedIn
-            <i  class="material-icons">person</i>
-          </a>        
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" routerLink="/log-in">Sign in as Admin</a></li>
-          <li><a class="dropdown-item" routerLink="/log-in">Sign in as a customer</a></li>
-        </ul>
-      </a>
     </div>
   </div>
 </nav>
