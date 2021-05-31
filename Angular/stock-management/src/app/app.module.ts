@@ -9,7 +9,7 @@ import { ListOfStockComponent } from './stock/list-of-stock/list-of-stock.compon
 import { HomeComponent } from './home/home/home.component';
 
 import { FormsModule } from '@angular/forms';
-import { CheckoutComponent } from './stock/checkout/checkout.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +17,6 @@ import { CheckoutComponent } from './stock/checkout/checkout.component';
     ItemsInStockComponent,
     ListOfStockComponent,
     HomeComponent,
-    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
