@@ -8,9 +8,18 @@ import { Product, Quantity } from 'src/app/Product';
 })
 export class ListOfStockComponent implements OnInit {
 
-  get products() { return products; } 
+  //get products() { return products; } 
   get quantity() { return quantity; } 
 
+  //products : Product[] = []
+  public get products(){
+    return products
+  }
+  
+  public set products(v : Product[]) {
+    this.products = v;
+  }
+  
   selectedProduct = "";
   isCreated: boolean = false;
   public productId = 0;
@@ -43,7 +52,7 @@ export class ListOfStockComponent implements OnInit {
 
     quantity.forEach(q => {
       if (q.productId == this.productId) {
-        q.numOfStock = q.numOfStock + this.noOfItems //FIX THIS
+        q.numOfStock = q.numOfStock + parseInt(this.noOfItems.toString())
         console.log(q.numOfStock)
       }
     })
@@ -55,7 +64,6 @@ export class ListOfStockComponent implements OnInit {
   fadeOutAlert() {
     setTimeout(() => { this.isCreated = false }, 3000);
    }
-  selectProduct(id: number){}
 
   onChangeProduct(newObj : Product){
     this.productId = newObj.id

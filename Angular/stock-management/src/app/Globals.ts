@@ -15,4 +15,4 @@ export const products: Product[] = [
 
   export const stocks: Product[] = [];
 
-  export const users: User[] = []
+  export const users: User[] = [ {email: "admin@mail.com"} ]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { stocks, users } from 'src/app/Globals';
 import { Product, Quantity } from 'src/app/Product';
 import { User } from 'src/app/User';
@@ -10,13 +11,20 @@ import { User } from 'src/app/User';
 })
 export class ItemsInStockComponent implements OnInit {
 
-  get users() { return users}
+  public get users() { return users}
+  //public set users(v : User[]) {this.users = v;}
+
 
   stocks : Product[] = [];
   quantities : Quantity[] = [];
+
+  email : string = "";
   isCheckedOut : boolean = false;
   isUserExist : boolean = false;
-  constructor() { }
+  totaldue : number = 0;
+  totalPrice : number = 0;
+
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
     this.setQuantity()
@@ -36,10 +44,9 @@ export class ItemsInStockComponent implements OnInit {
   }
 
   TotalDue(){
-    var totaldue : number = 0;
-    stocks.forEach(stock => {totaldue += stock.price});
-
-    return totaldue;
+    this.totaldue = 0;
+    stocks.forEach(stock => {this.totaldue += stock.price});
+    return this.totaldue;
   }
 
   getQuantity(id:number): number{
@@ -62,7 +69,7 @@ export class ItemsInStockComponent implements OnInit {
         this.stocks.push(stock)
       }  
 
-      if(quantity != null){ //Exist{ 
+      if(quantity != null){ //Exist
         quantity.numOfStock++        
       }
       else
@@ -74,17 +81,46 @@ export class ItemsInStockComponent implements OnInit {
   }
  
   checkout(){
-    var email: string
     //if email exist
-    if (users.find(u => u.email == email) != null) {
-      //var user : User = { email: email}
-      //users.push(user)
+    if(users.find(u => u.email == this.email) == null) {
+      
+      var user : User = {email : this.email}
+      users.push(user);
+
       this.isCheckedOut = true;
       this.fadeOutAlert()
+
+      this.stocks = []
+      this.quantities = [];
+      this.totaldue = 0;
+      //this.router.navigate(['/home'])
     }else{
       this.isUserExist = true;
+      this.email = "";
     }
-    
   }
 
+  add(product: Product){
+    stocks.push(product)
+    this.quantities.forEach(q => {
+      if(q.productId == product.id )
+      {
+        q.numOfStock++
+      }
+    })
+  }
+
+  remove(product: Product){
+    var p = stocks.find(s => s.id == product.id)
+    
+    this.quantities.forEach(q => {
+      if(q.productId == product.id && q.numOfStock > 1)
+      {
+        q.numOfStock--
+        if(p != null) { //if product exist
+          stocks.splice(stocks.indexOf(p),1)
+        }
+      }
+    })
+  }
 }

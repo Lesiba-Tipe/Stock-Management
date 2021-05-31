@@ -10,9 +10,7 @@ import { quantity, stocks,products } from 'src/app/Globals';
 })
 export class HomeComponent implements OnInit {
 
-  
-  //
-  //stocks: Product[] = [];
+  isDisable : boolean = true;
   count: number = 0;
   get products() { return products; }
   get stocks() { return stocks; }
@@ -23,14 +21,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(quantity);
+    this.disbableButton()
   }
 
   addStock(product: Product): void {
 
     stocks.push(product);
-
     this.removeStock(product.id);
-    console.log(quantity);
+
+    this.disbableButton()
   }
 
   removeStock(id: number):void{
@@ -55,4 +54,9 @@ export class HomeComponent implements OnInit {
     //routerLink="/items-in-stock"
   }
 
+  disbableButton(){
+    if (stocks.length > 0) {
+      this.isDisable = false;
+    }
+  }
 }
