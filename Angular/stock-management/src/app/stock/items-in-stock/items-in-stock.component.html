@@ -70,10 +70,12 @@
                                                 {{currencyFormatter(stock.price)}}
                                             </td>
                                             <td>
-                                                
-                                                <!--{{currencyFormatter(stock.price * getQuantity(stock.id))}}-->
                                                 {{currencyFormatter(stock.price * getQuantity(stock.id))}}
                                             </td>
+                                            <td>                                                
+                                                <button (click)="delete(stock)"  type="button" class="btn btn-close btn-danger"></button>
+                                            </td>
+
                                         </tr>
                                         <tr>
                                             <td></td>

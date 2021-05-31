@@ -12,7 +12,8 @@ export const products: Product[] = [
     {productId: 2, numOfStock: 51},
     {productId: 3, numOfStock: 36},
   ];
-
-  export const stocks: Product[] = [];
-
   export const users: User[] = [ {email: "admin@mail.com"} ]
+
+  export class GlobalVars {
+    public static stocks: Product[] = [];
+  }

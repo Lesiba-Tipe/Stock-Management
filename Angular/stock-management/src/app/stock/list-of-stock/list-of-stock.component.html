@@ -75,7 +75,7 @@
 
          <div class="row g-3">
           <div class="col-md-4">          
-            <select [ngModel]="selectedProduct" (ngModelChange)="onChangeProduct($event)" class="form-select">
+            <select name="selectedProduct" [ngModel]="selectedProduct" (ngModelChange)="onChangeProduct($event)" class="form-select">
               <option [ngValue]="product" *ngFor="let product of products" >{{product.name}}</option>
             </select>
           </div>

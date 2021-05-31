@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product, Quantity } from 'src/app/Product';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { quantity, stocks,products } from 'src/app/Globals';
+import { quantity, GlobalVars,products } from 'src/app/Globals';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   isDisable : boolean = true;
   count: number = 0;
   get products() { return products; }
-  get stocks() { return stocks; }
+  get stocks() { return GlobalVars.stocks; }
   constructor(
     //private products: products,
     private router: Router,
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
   addStock(product: Product): void {
 
-    stocks.push(product);
+    GlobalVars.stocks.push(product);
     this.removeStock(product.id);
 
     this.disbableButton()
@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
   }
 
   disbableButton(){
-    if (stocks.length > 0) {
+    if (GlobalVars.stocks.length > 0) {
       this.isDisable = false;
     }
   }

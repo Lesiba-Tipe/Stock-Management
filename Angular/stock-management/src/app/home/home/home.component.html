@@ -14,15 +14,14 @@
     
   </div>
 
-    <div class="container">
-        <div *ngFor="let product of products">
-            <div class="col-sm framework-list-slice">
+    <div class="flex-container">
+        <div class="flex-item" *ngFor="let product of products">
+            <div class=" framework-list-slice">
                 <div>
                     <h2>{{product.name}}</h2> <br>
                     [PICTURE] <br>
                     <p>{{currencyFormatter(product.price)}}</p> <br>
-                    <button type="button" (click)="addStock(product)" class="btn btn-outline-success">Add to stock</button>
-            
+                    <button type="button" (click)="addStock(product)" class="btn btn-outline-success">Add to stock</button>            
                 </div>
             </div>     
         </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { stocks, users } from 'src/app/Globals';
+import { users, GlobalVars } from 'src/app/Globals';
 import { Product, Quantity } from 'src/app/Product';
 import { User } from 'src/app/User';
 
@@ -12,8 +12,6 @@ import { User } from 'src/app/User';
 export class ItemsInStockComponent implements OnInit {
 
   public get users() { return users}
-  //public set users(v : User[]) {this.users = v;}
-
 
   stocks : Product[] = [];
   quantities : Quantity[] = [];
@@ -28,10 +26,14 @@ export class ItemsInStockComponent implements OnInit {
 
   ngOnInit(): void {
     this.setQuantity()
+
+    console.log(this.stocks)
+    console.log(GlobalVars.stocks)
+    console.log('break')
   }
 
   fadeOutAlert() {
-    setTimeout(() => { this.isCheckedOut = false }, 3000);
+    setTimeout(() => { this.isCheckedOut = false }, 2500);
    }
 
   currencyFormatter(price:number) {
@@ -45,7 +47,7 @@ export class ItemsInStockComponent implements OnInit {
 
   TotalDue(){
     this.totaldue = 0;
-    stocks.forEach(stock => {this.totaldue += stock.price});
+    GlobalVars.stocks.forEach(stock => {this.totaldue += stock.price});
     return this.totaldue;
   }
 
@@ -60,7 +62,7 @@ export class ItemsInStockComponent implements OnInit {
   }
 
   setQuantity(): void{
-    stocks.forEach(stock => {
+    GlobalVars.stocks.forEach(stock => {
 
       var quantity = this.quantities.find(q => q.productId == stock.id)      
       var product = this.stocks.find(p => p.id == stock.id)
@@ -90,10 +92,11 @@ export class ItemsInStockComponent implements OnInit {
       this.isCheckedOut = true;
       this.fadeOutAlert()
 
+      GlobalVars.stocks = []
       this.stocks = []
       this.quantities = [];
       this.totaldue = 0;
-      //this.router.navigate(['/home'])
+      setTimeout(() => { this.router.navigate(['/home']) }, 3000);
     }else{
       this.isUserExist = true;
       this.email = "";
@@ -101,7 +104,7 @@ export class ItemsInStockComponent implements OnInit {
   }
 
   add(product: Product){
-    stocks.push(product)
+    GlobalVars.stocks.push(product)
     this.quantities.forEach(q => {
       if(q.productId == product.id )
       {
@@ -111,16 +114,34 @@ export class ItemsInStockComponent implements OnInit {
   }
 
   remove(product: Product){
-    var p = stocks.find(s => s.id == product.id)
+    var p = GlobalVars.stocks.find(s => s.id == product.id)
     
     this.quantities.forEach(q => {
       if(q.productId == product.id && q.numOfStock > 1)
       {
         q.numOfStock--
         if(p != null) { //if product exist
-          stocks.splice(stocks.indexOf(p),1)
+          GlobalVars.stocks.splice(GlobalVars.stocks.indexOf(p),1)
         }
       }
     })
+  }
+
+  delete(product : Product){
+    var prod = this.stocks.find(s => s.id == product.id)
+    if(prod != null) {
+      this.stocks.splice(GlobalVars.stocks.indexOf(prod),1)
+    }
+
+    GlobalVars.stocks.forEach(p => {
+      if(p.id == product.id)
+      {GlobalVars.stocks.splice(GlobalVars.stocks.indexOf(p),1)}
+    })
+
+    var filtered = GlobalVars.stocks.filter(function(value, index, arr){ 
+      return value.id != product.id;
+    });
+    console.log(filtered)
+    GlobalVars.stocks = filtered
   }
 }

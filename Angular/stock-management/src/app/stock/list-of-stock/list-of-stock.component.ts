@@ -7,11 +7,8 @@ import { Product, Quantity } from 'src/app/Product';
   styleUrls: ['./list-of-stock.component.css']
 })
 export class ListOfStockComponent implements OnInit {
-
-  //get products() { return products; } 
   get quantity() { return quantity; } 
 
-  //products : Product[] = []
   public get products(){
     return products
   }
@@ -53,7 +50,8 @@ export class ListOfStockComponent implements OnInit {
     quantity.forEach(q => {
       if (q.productId == this.productId) {
         q.numOfStock = q.numOfStock + parseInt(this.noOfItems.toString())
-        console.log(q.numOfStock)
+        this.noOfItems = 0
+        this.selectedProduct = "";
       }
     })
 
@@ -65,7 +63,7 @@ export class ListOfStockComponent implements OnInit {
     setTimeout(() => { this.isCreated = false }, 3000);
    }
 
-  onChangeProduct(newObj : Product){
-    this.productId = newObj.id
+  onChangeProduct(product : Product){
+    this.productId = product.id
   }
 }
